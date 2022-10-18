@@ -1598,6 +1598,118 @@ break
                 naze.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
+			case 'kiss': {
+		if (m.isGroup) return m.reply('Fitur Tidak Dapat Digunakan Untuk Group!')
+            	m.reply(mess.wait)
+                anu = await fetchJson(`https://waifu.pics/api/sfw/kiss`)
+                buffer = await getBuffer(anu.url)
+                let buttons = [{buttonId: `kiss`, buttonText: {displayText: 'Next Image'}, type: 1},{buttonId: `simplemenu`, buttonText: {displayText: '⬅️Back'}, type: 1}]
+                let buttonMessage = {
+                    image: buffer,
+                    caption: `Random Kiss`,
+                    footer: nyoutube,
+                    buttons: buttons,
+                    headerType: 4
+                }
+                naze.sendMessage(m.chat, buttonMessage, { quoted: m })
+            }
+            break
+			case 'lick': {
+		if (m.isGroup) return m.reply('Fitur Tidak Dapat Digunakan Untuk Group!')
+            	m.reply(mess.wait)
+                anu = await fetchJson(`https://waifu.pics/api/sfw/lick`)
+                buffer = await getBuffer(anu.url)
+                let buttons = [{buttonId: `lick`, buttonText: {displayText: 'Next Image'}, type: 1},{buttonId: `simplemenu`, buttonText: {displayText: '⬅️Back'}, type: 1}]
+                let buttonMessage = {
+                    image: buffer,
+                    caption: `Random Lick`,
+                    footer: nyoutube,
+                    buttons: buttons,
+                    headerType: 4
+                }
+                naze.sendMessage(m.chat, buttonMessage, { quoted: m })
+            }
+            break
+			case 'cringe': {
+		if (m.isGroup) return m.reply('Fitur Tidak Dapat Digunakan Untuk Group!')
+            	m.reply(mess.wait)
+                anu = await fetchJson(`https://waifu.pics/api/sfw/cringe`)
+                buffer = await getBuffer(anu.url)
+                let buttons = [{buttonId: `cringe`, buttonText: {displayText: 'Next Image'}, type: 1},{buttonId: `simplemenu`, buttonText: {displayText: '⬅️Back'}, type: 1}]
+                let buttonMessage = {
+                    image: buffer,
+                    caption: `Random Cringe`,
+                    footer: nyoutube,
+                    buttons: buttons,
+                    headerType: 4
+                }
+                naze.sendMessage(m.chat, buttonMessage, { quoted: m })
+            }
+            break
+			case 'cry': {
+		if (m.isGroup) return m.reply('Fitur Tidak Dapat Digunakan Untuk Group!')
+            	m.reply(mess.wait)
+                anu = await fetchJson(`https://waifu.pics/api/sfw/cry`)
+                buffer = await getBuffer(anu.url)
+                let buttons = [{buttonId: `cry`, buttonText: {displayText: 'Next Image'}, type: 1},{buttonId: `simplemenu`, buttonText: {displayText: '⬅️Back'}, type: 1}]
+                let buttonMessage = {
+                    image: buffer,
+                    caption: `Random Cry`,
+                    footer: nyoutube,
+                    buttons: buttons,
+                    headerType: 4
+                }
+                naze.sendMessage(m.chat, buttonMessage, { quoted: m })
+            }
+            break
+			case 'smile': {
+		if (m.isGroup) return m.reply('Fitur Tidak Dapat Digunakan Untuk Group!')
+            	m.reply(mess.wait)
+                anu = await fetchJson(`https://waifu.pics/api/sfw/smile`)
+                buffer = await getBuffer(anu.url)
+                let buttons = [{buttonId: `smile`, buttonText: {displayText: 'Next Image'}, type: 1},{buttonId: `simplemenu`, buttonText: {displayText: '⬅️Back'}, type: 1}]
+                let buttonMessage = {
+                    image: buffer,
+                    caption: `Random Smile`,
+                    footer: nyoutube,
+                    buttons: buttons,
+                    headerType: 4
+                }
+                naze.sendMessage(m.chat, buttonMessage, { quoted: m })
+            }
+            break
+			case 'trap': {
+		if (m.isGroup) return m.reply('Fitur Tidak Dapat Digunakan Untuk Group!')
+            	m.reply(mess.wait)
+                anu = await fetchJson(`https://waifu.pics/api/nsfw/trap`)
+                buffer = await getBuffer(anu.url)
+                let buttons = [{buttonId: `trap`, buttonText: {displayText: 'Next Image'}, type: 1},{buttonId: `simplemenu`, buttonText: {displayText: '⬅️Back'}, type: 1}]
+                let buttonMessage = {
+                    image: buffer,
+                    caption: `Random Trap`,
+                    footer: nyoutube,
+                    buttons: buttons,
+                    headerType: 4
+                }
+                naze.sendMessage(m.chat, buttonMessage, { quoted: m })
+            }
+            break
+			case 'blowjob': {
+		if (m.isGroup) return m.reply('Fitur Tidak Dapat Digunakan Untuk Group!')
+            	m.reply(mess.wait)
+                anu = await fetchJson(`https://waifu.pics/api/nsfw/blowjob`)
+                buffer = await getBuffer(anu.url)
+                let buttons = [{buttonId: `blowjob`, buttonText: {displayText: 'Next Image'}, type: 1},{buttonId: `simplemenu`, buttonText: {displayText: '⬅️Back'}, type: 1}]
+                let buttonMessage = {
+                    image: buffer,
+                    caption: `Random BJ`,
+                    footer: nyoutube,
+                    buttons: buttons,
+                    headerType: 4
+                }
+                naze.sendMessage(m.chat, buttonMessage, { quoted: m })
+            }
+            break
 		case 'cuddle': {
 		if (m.isGroup) return m.reply('Fitur Tidak Dapat Digunakan Untuk Group!')
             	m.reply(mess.wait)
