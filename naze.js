@@ -1583,6 +1583,7 @@ break
             }
             break
             case 'waifu': {
+		if (m.isGroup) return m.reply('Fitur Tidak Dapat Digunakan Untuk Group!')
             	m.reply(mess.wait)
                 anu = await fetchJson(`https://waifu.pics/api/nsfw/waifu`)
                 buffer = await getBuffer(anu.url)
@@ -1598,6 +1599,7 @@ break
             }
             break
 		case 'cuddle': {
+		if (m.isGroup) return m.reply('Fitur Tidak Dapat Digunakan Untuk Group!')
             	m.reply(mess.wait)
                 anu = await fetchJson(`https://waifu.pics/api/sfw/cuddle`)
                 buffer = await getBuffer(anu.url)
@@ -1613,6 +1615,7 @@ break
             }
             break
 		case 'megumin': {
+		if (m.isGroup) return m.reply('Fitur Tidak Dapat Digunakan Untuk Group!')
             	m.reply(mess.wait)
                 anu = await fetchJson(`https://waifu.pics/api/sfw/megumin`)
                 buffer = await getBuffer(anu.url)
@@ -1628,6 +1631,7 @@ break
             }
             break
 		case 'neko': {
+		if (m.isGroup) return m.reply('Fitur Tidak Dapat Digunakan Untuk Group!')
             	m.reply(mess.wait)
                 anu = await fetchJson(`https://waifu.pics/api/nsfw/neko`)
                 buffer = await getBuffer(anu.url)
