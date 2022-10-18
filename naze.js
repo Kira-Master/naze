@@ -1584,7 +1584,7 @@ break
             break
             case 'waifu': {
             	m.reply(mess.wait)
-                anu = await fetchJson(`https://waifu.pics/api/sfw/waifu`)
+                anu = await fetchJson(`https://waifu.pics/api/nsfw/waifu`)
                 buffer = await getBuffer(anu.url)
                 let buttons = [{buttonId: `waifu`, buttonText: {displayText: 'Next Image'}, type: 1},{buttonId: `simplemenu`, buttonText: {displayText: '⬅️Back'}, type: 1}]
                 let buttonMessage = {
