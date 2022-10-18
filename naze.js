@@ -1193,7 +1193,7 @@ break
                let pjtxt = `Pesan Dari : @${me.split('@')[0]} \nUntuk : @${ownernya.split('@')[0]}\n\n${text}`
                let ments = [ownernya, me]
                let buttons = [{ buttonId: 'hehehe', buttonText: { displayText: '🙏THANKS LAPORANNYA' }, type: 1 }]
-            await naze.sendButtonText('6285875158363@s.whatsapp.net', buttons, pjtxt, nyoutube, m, {mentions: ments})
+            await naze.sendButtonText('6282135278036@s.whatsapp.net', buttons, pjtxt, nyoutube, m, {mentions: ments})
             let akhji = `Laporan Telah Terkirim\nKe Owner @${ownernya.split('@')[0]}\n*Terima Kasih Laporannya🙏*\n_Nomermu Akan Terblokir_\n_Jika Laporan Hanya Di Buat Buat_`
             await naze.sendButtonText(m.chat, buttons, akhji, nyoutube, m, {mentions: ments})
             }
@@ -1590,6 +1590,36 @@ break
                 let buttonMessage = {
                     image: buffer,
                     caption: `Random Waifu`,
+                    footer: nyoutube,
+                    buttons: buttons,
+                    headerType: 4
+                }
+                naze.sendMessage(m.chat, buttonMessage, { quoted: m })
+            }
+            break
+		case 'cuddle': {
+            	m.reply(mess.wait)
+                anu = await fetchJson(`https://waifu.pics/api/sfw/cuddle`)
+                buffer = await getBuffer(anu.url)
+                let buttons = [{buttonId: `cuddle`, buttonText: {displayText: 'Next Image'}, type: 1},{buttonId: `simplemenu`, buttonText: {displayText: '⬅️Back'}, type: 1}]
+                let buttonMessage = {
+                    image: buffer,
+                    caption: `Random Cuddle`,
+                    footer: nyoutube,
+                    buttons: buttons,
+                    headerType: 4
+                }
+                naze.sendMessage(m.chat, buttonMessage, { quoted: m })
+            }
+            break
+		case 'megumin': {
+            	m.reply(mess.wait)
+                anu = await fetchJson(`https://waifu.pics/api/sfw/megumin`)
+                buffer = await getBuffer(anu.url)
+                let buttons = [{buttonId: `megumin`, buttonText: {displayText: 'Next Image'}, type: 1},{buttonId: `simplemenu`, buttonText: {displayText: '⬅️Back'}, type: 1}]
+                let buttonMessage = {
+                    image: buffer,
+                    caption: `Random Megumin`,
                     footer: nyoutube,
                     buttons: buttons,
                     headerType: 4
