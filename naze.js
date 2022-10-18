@@ -1597,6 +1597,21 @@ break
                 naze.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
+		case 'neko': {
+            	m.reply(mess.wait)
+                anu = await fetchJson(`https://waifu.pics/api/nsfw/neko`)
+                buffer = await getBuffer(anu.url)
+                let buttons = [{buttonId: `neko`, buttonText: {displayText: 'Next Image'}, type: 1},{buttonId: `simplemenu`, buttonText: {displayText: '⬅️Back'}, type: 1}]
+                let buttonMessage = {
+                    image: buffer,
+                    caption: `Random Neko`,
+                    footer: nyoutube,
+                    buttons: buttons,
+                    headerType: 4
+                }
+                naze.sendMessage(m.chat, buttonMessage, { quoted: m })
+            }
+            break
 	    case 'couple': {
                 m.reply(mess.wait)
                 let anu = await fetchJson('https://raw.githubusercontent.com/iamriz7/kopel_/main/kopel.json')
