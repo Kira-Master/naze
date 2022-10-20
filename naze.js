@@ -1227,7 +1227,7 @@ break
 		
 					if (!isCreator) throw mess.owner
 					if (args.length < 1) return reply('Teksnya?')
-					anu = await naze.chats.all()
+					anu = await store.chats.all()
 					if (isMedia && !mek.message.videoMessage || isQuotedImage) {
 						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
 						buff = await naze.downloadMediaMessage(encmedia)
