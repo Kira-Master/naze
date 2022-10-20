@@ -2276,6 +2276,7 @@ break
 				ten = `${G.HD}`
 				naze.sendMediaURL(m.chat, ten, { quoted: m })
 				}
+			}
             break
 	        case 'twitdl': case 'twitter': {
                 if (!text) throw 'Masukkan Query Link!'
