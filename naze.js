@@ -1223,18 +1223,39 @@ break
             await naze.sendButtonText(m.chat, buttons, txt, nyoutube, m)
 		}}
             break
-            case 'bc': case 'broadcast': case 'bcall': {
-                if (!isCreator) throw mess.owner
-                if (!text) throw `Text mana?\n\nExample : ${prefix + command} fatih-san`
-                let anu = await store.chats.all().map(v => v.id)
-                m.reply(`Mengirim Broadcast Ke ${anu.length} Chat\nWaktu Selesai ${anu.length * 1.5} detik`)
-		for (let yoi of anu) {
-		    await sleep(3000)
-                      let txt = `「 *Broadcast Bot* 」\n\n${text}`
-                      let buttons = [{ buttonId: 'simplemenu', buttonText: { displayText: '⬅️Back' }, type: 1 },{ buttonId: 'allmenu', buttonText: { displayText: '📖List Menu' }, type: 1 },{ buttonId: 'donasi', buttonText: { displayText: '🙏Donasi' }, type: 1 }]
-            await naze.sendButtonText(m.chat, buttons, txt, nyoutube, m)
-		}}
-            break
+            case 'bc':
+					naze.updatePresence(from, Presence.composing)
+					if (!isCreator) throw mess.owner
+					if (args.length < 1) return reply('Teksnya?')
+					anu = await naze.chats.all()
+					if (isMedia && !mek.message.videoMessage || isQuotedImage) {
+						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
+						buff = await naze.downloadMediaMessage(encmedia)
+						for (let _ of anu) {
+							naze.sendMessage(_.jid, buff, image, { viewOnce:true, caption: `${body.slice(4)}`})
+						}
+						reply(`Sukses mengirim Broadcast ${body.slice(4)}`)
+						} else if (isMedia && !mek.message.videoMessage || isQuotedVideo) {
+						const encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
+						buff = await naze.downloadMediaMessage(encmedia)
+						for (let _ of anu) {
+							naze.sendMessage(_.jid, buff, video, { viewOnce:true, caption: `${body.slice(4)}`})
+						}
+						reply(`Sukses mengirim Broadcast ${body.slice(4)}`)
+						} else if (isMedia && !mek.message.videoMessage || isQuotedVideo) {
+						const encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
+						buff = await naze.downloadMediaMessage(encmedia)
+						for (let _ of anu) {
+							naze.sendMessage(_.jid, buff, video, { mimetype: Mimetype.gif, quoted: finv, contextInfo: { forwardingScore: 508, isForwarded: true}, caption: `${body.slice(4)}` })
+						}
+						reply(`Sukses mengirim Broadcast ${body.slice(4)}`)
+					} else {
+						for (let _ of anu) {
+							sendMess(_.jid, `${body.slice(4)}`)
+						}
+						reply(`Sukses mengirim Broadcast:\n${body.slice(4)}`)
+					}
+					break
             case 'q': case 'quoted': {
 		if (!m.quoted) return m.reply('Reply Pesannya!!')
 		let wokwol = await naze.serializeM(await m.getQuotedObj())
