@@ -2277,7 +2277,8 @@ break
 				naze.sendFileUrl(m.chat, ten, { quoted: m })
 				})
 			}
-            break	        case 'twitdl': case 'twitter': {
+            break
+		case 'twitdl': case 'twitter': {
                 if (!text) throw 'Masukkan Query Link!'
                 m.reply(mess.wait)
                 ajg = args.join(' ')
