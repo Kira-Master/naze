@@ -2184,24 +2184,7 @@ break
                 }
             }
             break
-            case 'tiktok': case 'tiktoknowm': {
-                if (!text) throw 'Masukkan Query Link!'
-                m.reply(mess.wait)
-                let anu = await fetchJson(`https://anabotofc.herokuapp.com/api/download/tiktok2?url=${text}&apikey=AnaBot`)
-                let buttons = [
-                    {buttonId: `allmenu`, buttonText: {displayText: '📖List Menu'}, type: 1},
-                    {buttonId: `tiktokmp3 ${text}`, buttonText: {displayText: '♫ Audio'}, type: 1}
-                ]
-                let buttonMessage = {
-                    video: { url: anu.result.nowm },
-                    caption: `Download From ${text}`,
-                    footer: nyoutube,
-                    buttons: buttons,
-                    headerType: 5
-                }
-                naze.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
-            break
+            
            /**case 'tiktokwm': case 'tiktokwatermark': {
                 if (!text) throw 'Masukkan Query Link!'
                 m.reply(mess.wait)
@@ -2266,6 +2249,24 @@ break
                 naze.sendMessage(m.chat, { audio: { url: anu.result.url }, mimetype: 'audio/mpeg', fileName: anu.result.title+'.m4a' }, { quoted: msg })
             }
             break
+			case 'tiktok': case 'tiktoknowm': {
+                if (!text) throw 'Masukkan Query Link!'
+                m.reply(mess.wait)
+                let anu = await fetchJson(`https://anabotofc.herokuapp.com/api/download/tiktok2?url=${text}&apikey=AnaBot`)
+                let buttons = [
+                    {buttonId: `allmenu`, buttonText: {displayText: '📖List Menu'}, type: 1},
+                    {buttonId: `tiktokmp3 ${text}`, buttonText: {displayText: '♫ Audio'}, type: 1}
+                ]
+                let buttonMessage = {
+                    video: { url: anu.result.nowm },
+                    caption: `Download From ${text}`,
+                    footer: nyoutube,
+                    buttons: buttons,
+                    headerType: 5
+                }
+                naze.sendMessage(m.chat, buttonMessage, { quoted: m })
+            }
+            break
 			case 'fbdl': case 'fb': case 'facebook': {
                 if (!text) throw 'Masukkan Query Link!'
                 m.reply(mess.wait)
@@ -2273,25 +2274,17 @@ break
 				hx.fbdown(`${te}`)
 				.then(G => {
 				ten = `${G.HD}`
-				sendMediaURL(from,ten,`*Link video_normal* : ${G.Normal_video}`)
-				})
+				naze.sendMediaURL(m.chat, ten, { quoted: m })
 				}
             break
 	        case 'twitdl': case 'twitter': {
                 if (!text) throw 'Masukkan Query Link!'
                 m.reply(mess.wait)
-                let anu = await fetchJson(api('zenz', '/api/downloader/twitter', { url: text }, 'apikey'))
-                let buttons = [
-                    {buttonId: `twittermp3 ${text}`, buttonText: {displayText: '► Audio'}, type: 1}
-                ]
-                let buttonMessage = {
-                    video: { url: anu.result.HD || anu.result.SD },
-                    caption: util.format(anu.result),
-                    footer: 'Press The Button Below',
-                    buttons: buttons,
-                    headerType: 5
-                }
-                naze.sendMessage(m.chat, buttonMessage, { quoted: m })
+                ajg = args.join(' ')
+				hx.twitter(`${ajg}`)
+				.then(H => {
+					cok = `${H.SD}`
+					naze.sendMediaURL(m.chat, cok, { quoted: m })
             }
             break
             case 'twittermp3': case 'twitteraudio': {
