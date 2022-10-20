@@ -2267,18 +2267,17 @@ break
                 naze.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-			case 'fbdl': case 'fb': case 'facebook': {
+		case 'fbdl': case 'fb': case 'facebook': {
                 if (!text) throw 'Masukkan Query Link!'
                 m.reply(mess.wait)
                 te = args.join(' ')
 				hx.fbdown(`${te}`)
 				.then(G => {
 				ten = `${G.HD}`
-				naze.sendMediaURL(m.chat, ten, { quoted: m })
+				naze.sendFileUrl(m.chat, ten, { quoted: m })
 				})
 			}
-            break
-	        case 'twitdl': case 'twitter': {
+            break	        case 'twitdl': case 'twitter': {
                 if (!text) throw 'Masukkan Query Link!'
                 m.reply(mess.wait)
                 ajg = args.join(' ')
