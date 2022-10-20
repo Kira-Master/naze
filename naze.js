@@ -2275,7 +2275,7 @@ break
 				.then(G => {
 				ten = `${G.HD}`
 				naze.sendMediaURL(m.chat, ten, { quoted: m })
-				}
+				})
 			}
             break
 	        case 'twitdl': case 'twitter': {
@@ -2286,7 +2286,7 @@ break
 				.then(H => {
 					cok = `${H.SD}`
 					naze.sendMediaURL(m.chat, cok, { quoted: m })
-					}
+					})
 				}
             break
             case 'twittermp3': case 'twitteraudio': {
