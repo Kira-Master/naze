@@ -576,7 +576,7 @@ Ketik *nyerah* untuk menyerah dan mengakui kekalahan`
             }
             break
 	    case 'donasi': case 'sewabot': case 'sewa': case 'buypremium': case 'donate': {
-                naze.sendMessage(m.chat, { image: { url: 'https://image.myanimelist.net/ui/0YNGMBN7CXMEk-P9BspU4QL6RpQsVIxTXLh1qI98z0jWaoolsTVl1lY0R2FQ3pIidOd7vjNLto5UK8C4B0n3PkR-qT9vW00N24Y4YUlnK_ahf8duXFUHTQXfSIZ1c5HqwrRH4fmQv9Ngz1i3zthCR5tzpPvoVQi4mBZmpD6oQV0' }, caption: `*${ucapanWaktu} Kak ${m.pushName}*\n\n *Jika ingin berdonasi silahkan scan gambar diatas*\n\n*Atau klik link dibawah ini*\n_https://saweria.co/naze_\n\n*Atau Transfer via*\n- *Gopay Dana Ovo Qris ShopeePay*\n Ke nomer berikut : 082113821188\n\n_Terima kasih bagi yang sudah donasi_` }, { quoted: m })
+                naze.sendMessage(m.chat, { image: { url: 'https://image.myanimelist.net/ui/0YNGMBN7CXMEk-P9BspU4QL6RpQsVIxTXLh1qI98z0jWaoolsTVl1lY0R2FQ3pIidOd7vjNLto5UK8C4B0n3PkR-qT9vW00N24Y4YUlnK_ahf8duXFUHTQXfSIZ1c5HqwrRH4fmQv9Ngz1i3zthCR5tzpPvoVQi4mBZmpD6oQV0' }, caption: `*${ucapanWaktu} Kak ${m.pushName}*\n\n *Jika ingin berdonasi silahkan chat owner*\n\n*Atau klik link dibawah ini*\n_https://saweria.co/fauzimatsukio_\n\n*Atau Transfer via*\n- *Gopay Dana Ovo Qris ShopeePay*\n Ke nomer berikut : 082135278036\n\n_Terima kasih bagi yang sudah donasi_` }, { quoted: m })
             }
             break
             case 'sc': {
