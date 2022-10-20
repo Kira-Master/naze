@@ -2286,7 +2286,8 @@ break
 				.then(H => {
 					cok = `${H.SD}`
 					naze.sendMediaURL(m.chat, cok, { quoted: m })
-            }
+					}
+				}
             break
             case 'twittermp3': case 'twitteraudio': {
                 if (!text) throw 'Masukkan Query Link!'
