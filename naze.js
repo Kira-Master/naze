@@ -100,7 +100,7 @@ module.exports = naze = async (naze, m, chatUpdate, store) => {
                 if (!('afkReason' in user)) user.afkReason = ''
                 if (!isNumber(user.limit)) user.limit = limitUser
             } else global.db.data.users[m.sender] = {
-                afkTime: -1,
+                afkTime : -1,
                 afkReason: '',
                 limit: limitUser,
             }
@@ -2266,6 +2266,17 @@ break
                 naze.sendMessage(m.chat, { audio: { url: anu.result.url }, mimetype: 'audio/mpeg', fileName: anu.result.title+'.m4a' }, { quoted: msg })
             }
             break
+			case 'fbdl': case 'fb': case 'facebook': {
+                if (!text) throw 'Masukkan Query Link!'
+                m.reply(mess.wait)
+                te = args.join(' ')
+				hx.fbdown(`${te}`)
+				.then(G => {
+				ten = `${G.HD}`
+				sendMediaURL(from,ten,`*Link video_normal* : ${G.Normal_video}`)
+				})
+				}
+            break
 	        case 'twitdl': case 'twitter': {
                 if (!text) throw 'Masukkan Query Link!'
                 m.reply(mess.wait)
@@ -2301,13 +2312,7 @@ break
                 naze.sendMessage(m.chat, { audio: { url: anu.result.audio } }, { quoted: msg })
             }
             break
-	        case 'fbdl': case 'fb': case 'facebook': {
-                if (!text) throw 'Masukkan Query Link!'
-                m.reply(mess.wait)
-                let anu = await fetchJson(api('zenz', '/api/downloader/facebook', { url: text }, 'apikey'))
-                naze.sendMessage(m.chat, { video: { url: anu.result.url }, caption: `⭔ Title : ${anu.result.title}`}, { quoted: m })
-            }
-            break
+	        
 	        case 'pindl': case 'pinterestdl': {
                 if (!text) throw 'Masukkan Query Link!'
                 m.reply(mess.wait)
