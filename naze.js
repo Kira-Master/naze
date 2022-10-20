@@ -1226,7 +1226,7 @@ break
             case 'bc':
 		
 					if (!isCreator) throw mess.owner
-					if (args.length < 1) return reply('Teksnya?')
+					if (!text) throw `Text mana?\n\nExample : ${prefix + command} fatih-san`
 					anu = await store.chats.all()
 					if (isMedia && !mek.message.videoMessage || isQuotedImage) {
 						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
