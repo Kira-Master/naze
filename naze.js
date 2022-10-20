@@ -1224,7 +1224,7 @@ break
 		}}
             break
             case 'bc':
-					naze.updatePresence(from, Presence.composing)
+		
 					if (!isCreator) throw mess.owner
 					if (args.length < 1) return reply('Teksnya?')
 					anu = await naze.chats.all()
