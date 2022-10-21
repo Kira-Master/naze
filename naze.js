@@ -1225,7 +1225,7 @@ break
                 let anu = groups.map(v => v.id)
                 m.reply(`Mengirim Broadcast Ke ${anu.length} Group Chat, Waktu Selesai ${anu.length * 1.5} detik`)
                 for (let i of anu) {
-                    await sleep(100000)
+                    await sleep(10000)
                     let txt = `「 *Broadcast Group* 」\n\n${text}`
                     let buttons = [{ buttonId: 'simplemenu', buttonText: { displayText: '⬅️Back' }, type: 1 },{ buttonId: 'allmenu', buttonText: { displayText: '📖List Menu' }, type: 1 },{ buttonId: 'donasi', buttonText: { displayText: '🙏Donasi' }, type: 1 }]
             await naze.sendButtonText(i, buttons, txt, nyoutube, m)
@@ -1237,7 +1237,7 @@ break
                 let anu = await store.chats.all().map(v => v.id)
                 m.reply(`Mengirim Broadcast Ke ${anu.length} Chat\nWaktu Selesai ${anu.length * 1.5} detik`)
 		for (let yoi of anu) {
-		    await sleep(100000)
+		    await sleep(10000)
                       let txt = `「 *Broadcast Bot* 」\n\n${text}`
                       let buttons = [{ buttonId: 'simplemenu', buttonText: { displayText: '⬅️Back' }, type: 1 },{ buttonId: 'allmenu', buttonText: { displayText: '📖List Menu' }, type: 1 },{ buttonId: 'donasi', buttonText: { displayText: '🙏Donasi' }, type: 1 }]
             await naze.sendButtonText(yoi, buttons, txt, nyoutube, m)
