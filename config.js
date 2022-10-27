@@ -11,11 +11,13 @@ const chalk = require('chalk')
 // Website Api
 global.APIs = {
 	zenz: 'https://zenzapis.xyz',
+	lolhuman: 'https://api.lolhuman.xyz/api',
 }
 
 // Apikey Website Api
 global.APIKeys = {
-	'https://zenzapis.xyz': '0e92565522',
+	'https://zenzapis.xyz': '41bc1ac82bf9',
+	'https://api.lolhuman.xyz/api': 'fd68ecc7cc1d83e6b50c3f9f',
 }
 
 // Other
