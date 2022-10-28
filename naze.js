@@ -1009,8 +1009,8 @@ ${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
 			let anu = await fetchJson(api('dhn','/film/layarkaca21', {film: text}, 'apikey'))
 			
 			if (!anu) return m.reply('server dalam perbaikan')
-				
-			naze.sendImage(m.chat, anu.result.film_thumb, `Judul: $anu.result.film\nUrl Film: $anu.result.film_url`, m)
+				console.log(anu)
+			naze.sendMessage(m.chat, `Judul: $anu.result.film\nUrl Film: $anu.result.film_url`, {quoted: m})
                 }
 		break
                 case 'devote': {
