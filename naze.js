@@ -1001,6 +1001,18 @@ ${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
             naze.sendMessage(m.chat, buttonMessageUpvote)
 	    }
              break
+		case 'film': {
+			if (!text) return m.reply('masukan query')
+				
+			m.reply(mess.wait)
+			
+			let anu = await fetchJson(api('dhn','/film/layarkaca21', {film: text}, 'apikey'))
+			
+			if (!anu) return m.reply('server dalam perbaikan')
+				
+			naze.sendImage(m.chat, anu.result.film_thumb, `Judul: $anu.result.film\nUrl Film: $anu.result.film_url`, m)
+                }
+		break
                 case 'devote': {
             if (!m.isGroup) throw mess.group
             if (!(m.chat in vote)) throw `_*tidak ada voting digrup ini!*_\n\n*${prefix}vote* - untuk memulai vote`
