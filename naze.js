@@ -1569,7 +1569,26 @@ case 'menfes': case 'menfess': {
                 naze.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-	    case 'ytmp4': {
+case 'ytmp3': case 'ytaudio': {
+                let { yta } = require('./lib/y2mate')
+                if (!text) throw `Example : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 128kbps`
+                let quality = args[1] ? args[1] : '128kbps'
+                let media = await yta(text, quality)
+                if (media.filesize >= 100000) return m.reply('File Melebihi Batas '+util.format(media))
+                naze.sendImage(m.chat, media.thumb, `⭔ Title : ${media.title}\n⭔ File Size : ${media.filesizeF}\n⭔ Url : ${isUrl(text)}\n⭔ Ext : MP3\n⭔ Resolusi : ${args[1] || '128kbps'}`, m)
+                naze.sendMessage(m.chat, { audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
+            }
+            break
+case 'ytmp4': case 'ytvideo': {
+                let { ytv } = require('./lib/y2mate')
+                if (!text) throw `Example : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 360p`
+                let quality = args[1] ? args[1] : '360p'
+                let media = await ytv(text, quality)
+                if (media.filesize >= 100000) return m.reply('File Melebihi Batas '+util.format(media))
+                naze.sendMessage(m.chat, { video: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `⭔ Title : ${media.title}\n⭔ File Size : ${media.filesizeF}\n⭔ Url : ${isUrl(text)}\n⭔ Ext : MP3\n⭔ Resolusi : ${args[1] || '360p'}` }, { quoted: m })
+            }
+            break
+	    case 'ytmp42': {
 				if (!text) return m.reply('url cannot be empty')
 				if (!budy.match('https://')) return m.reply('url cannot be empty')
 				
@@ -1581,7 +1600,7 @@ case 'menfes': case 'menfess': {
 				naze.sendFileUrl(m.chat, anu.result.getVideo, 'nih dek', m).catch((err) => {return m.reply('terjadi kesalahan saat mengirim media')})
 		}
 		break
-		case 'ytmp3': {
+		case 'ytmp32': {
 				if (!text) return m.reply('url cannot be empty')
 				if (!budy.match('https://')) return m.reply('url cannot be empty')
 				
@@ -1629,18 +1648,16 @@ case 'menfes': case 'menfess': {
             }
             break
             case 'waifu': {
+            	tesk = `*${ucapanWaktu} Kak ${pushname}*\n*Silahkan Pilih Dibawah Ini*\n\n_Dosa Tanggung Sendiri :v_`
+            	let buttons = [{buttonId: `menu`, buttonText: {displayText: '📚MENU'}, type: 1},{buttonId: `sfw`, buttonText: {displayText: '✅SFW'}, type: 1}]
+                await naze.sendButtonText(m.chat, buttons, tesk, nyoutube, m, {quoted: fkontak})
+            	}
+            break
+            case 'sfw': {
             	m.reply(mess.wait)
                 anu = await fetchJson(`https://waifu.pics/api/sfw/waifu`)
                 buffer = await getBuffer(anu.url)
-                let buttons = [{buttonId: `waifu`, buttonText: {displayText: 'Next Image'}, type: 1},{buttonId: `simplemenu`, buttonText: {displayText: '⬅️Back'}, type: 1}]
-                let buttonMessage = {
-                    image: buffer,
-                    caption: `Random Waifu`,
-                    footer: nyoutube,
-                    buttons: buttons,
-                    headerType: 4
-                }
-                naze.sendMessage(m.chat, buttonMessage, { quoted: m })
+                naze.sendMessage(m.chat, { image: buffer, caption: `Random Waifu`, footer: nyoutube}, { quoted: m })
             }
             break
 	    case 'couple': {
@@ -1693,6 +1710,22 @@ case 'menfes': case 'menfess': {
             await naze.sendButtonText(m.chat, buttons, jwbn, nyoutube, m)
             }
             break
+case 'grupsearch': {
+            	try {
+            	if (!text) return m.replay(`Example :\n${prefix}searchgc Classy Editor`)
+                nae = args.join(" ")
+                hx.linkwa(nae).then(res => {
+                teks = '```「 Search Group 」```'
+                for (let i of res) {
+                teks += `\n\n•> Group Whatsapp :\n`
+                teks += `${i.link}\n`
+                teks += `*${i.nama}`
+                }
+                naze.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/6cbed9af4ca002de3a801.jpg' }, caption: teks, footer: nyoutube}, { quoted: fkontak })
+                })} catch (e) {
+		        m.reply(mess.errmor)}
+                }
+                break
             case 'wikimedia': {
                 if (!text) throw 'Masukkan Query Title'
 		let { wikimedia } = require('./lib/scraper')
